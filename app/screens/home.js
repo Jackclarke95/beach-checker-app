@@ -18,7 +18,7 @@ const HomePage = () => {
         <FlatList
           data={notices}
           renderItem={renderNoticeItem}
-          keyExtractor={(notice) => notice.id}
+          keyExtractor={(n) => n.id.toString()}
         />
       )}
     </SafeAreaView>

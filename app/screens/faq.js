@@ -2,7 +2,7 @@ import React from "react";
 import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import data from "../data/data";
 
-const HomePage = () => {
+const FaqPage = () => {
   let faqs = data.faqs;
 
   const renderFaqItem = ({ item: faq }) => (
@@ -20,7 +20,7 @@ const HomePage = () => {
       <FlatList
         data={faqs}
         renderItem={renderFaqItem}
-        keyExtractor={(faq) => faq.id}
+        keyExtractor={(f) => f.id.toString()}
       />
     </SafeAreaView>
   );
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   answer: { fontSize: 18, flexGrow: 1, textAlign: "left" },
 });
 
-export default HomePage;
+export default FaqPage;

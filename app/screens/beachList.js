@@ -4,7 +4,7 @@ import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import data from "../data/data";
 
-const HomePage = () => {
+const BeachList = () => {
   let beaches = data.beaches;
 
   // Sort beaches alphabetically by name then sort favourites first
@@ -56,7 +56,7 @@ const HomePage = () => {
       <FlatList
         data={beaches}
         renderItem={renderBeachItem}
-        keyExtractor={(beach) => beach.id}
+        keyExtractor={(b) => b.id.toString()}
       />
     </SafeAreaView>
   );
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
   lowCongestion: { backgroundColor: "green" },
 });
 
-export default HomePage;
+export default BeachList;
