@@ -1,8 +1,10 @@
 import React from "react";
 import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
+import BeachCard from "../components/cards/beachCard";
 
 const HomePage = (props) => {
   let notices = props.notices;
+  let beach = props.beaches[0];
 
   const renderNoticeItem = ({ item: notice }) => (
     <View style={styles.item}>
@@ -12,6 +14,7 @@ const HomePage = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <BeachCard beach={beach}></BeachCard>
       {!notices || notices.length === 0 ? null : ( // Do not render Notices if there are none
         <FlatList
           data={notices}

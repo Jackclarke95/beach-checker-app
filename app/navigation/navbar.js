@@ -16,7 +16,9 @@ function Navbar() {
       <Tab.Navigator initialRouteName="Home">
         <Tab.Screen
           name="Home"
-          children={() => <HomePage notices={data.notices} />}
+          children={() => (
+            <HomePage notices={data.notices} beaches={data.beaches} />
+          )}
           options={{
             tabBarLabel: "Home",
             tabBarAccessibilityLabel: "Home page",

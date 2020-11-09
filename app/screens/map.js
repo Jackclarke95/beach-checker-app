@@ -1,28 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, SafeAreaView } from "react-native";
 import MapView, { Marker, Polygon } from "react-native-maps";
 
 const MapPage = (props) => {
   const beaches = props.beaches;
 
-  let initialRegion = {
+  const [region, setRegion] = useState({
     latitude: 50.7045,
     longitude: -1.8355,
     latitudeDelta: 0,
     longitudeDelta: 0.26,
-  };
+  });
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <MapView style={styles.map} initialRegion={initialRegion}>
+        <MapView
+          style={styles.map}
+          initialRegion={region}
+          onRegionChange={setRegion}
+        >
           {beaches.map((b) => {
             return (
               <>
                 <Marker
+                  opacity={region.longitudeDelta < 0.08 ? 1 : 0} // Only show markers when zoomed in enough
                   coordinate={b.location}
-                  title="Sandbanks TEST"
-                  description="Sandbanks TEST DESC"
+                  title={b.name}
+                  description={`Congestion: ${
+                    b.congestion === 1
+                      ? "Low"
+                      : b.congestion === 2
+                      ? "Medium"
+                      : "High"
+                  }`}
                 />
                 <Polygon
                   key={b.id.toString()}
