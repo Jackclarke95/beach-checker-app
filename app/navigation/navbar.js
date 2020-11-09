@@ -13,7 +13,12 @@ const Tab = createBottomTabNavigator();
 function Navbar() {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Home">
+      <Tab.Navigator
+        initialRouteName="Home"
+        activeColor={"pink"}
+        inactiveColor={"#fff"}
+        barStyle={{ backgroundColor: "#800020" }}
+      >
         <Tab.Screen
           name="Home"
           component={HomePage}

@@ -16,7 +16,6 @@ const FaqPage = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>F.A.Q.</Text>
       <FlatList
         data={faqs}
         renderItem={renderFaqItem}

@@ -13,7 +13,6 @@ const HomePage = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>BCP Beach Checker</Text>
       {!notices || notices.length === 0 ? null : ( // Do not render Notices if there are none
         <FlatList
           data={notices}

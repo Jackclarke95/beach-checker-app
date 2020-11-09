@@ -52,7 +52,6 @@ const BeachList = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>Beach Statuses</Text>
       <FlatList
         data={beaches}
         renderItem={renderBeachItem}
