@@ -7,7 +7,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -30,7 +30,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -60,7 +60,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 2,
       favourite: false,
       location: {
@@ -82,7 +82,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 2,
       favourite: true,
       location: {
@@ -133,7 +133,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 3,
       favourite: true,
       location: {
@@ -157,7 +157,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -184,7 +184,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -208,7 +208,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       notes:
         "Cliff stabilisation works are taking place in this area. There may be limited access along the promenade at times.",
       congestion: 1,
@@ -235,7 +235,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 2,
       favourite: false,
       location: {
@@ -291,7 +291,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -314,7 +314,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -336,7 +336,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -365,7 +365,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -397,7 +397,7 @@ const data = {
       toilets: false,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: true,
       location: {
@@ -425,7 +425,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -448,7 +448,7 @@ const data = {
       toilets: false,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -495,7 +495,7 @@ const data = {
       toilets: false,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -570,7 +570,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       favourite: false,
       location: {
@@ -630,7 +630,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted until after 6pm.",
+      bbq: "After 6pm",
       congestion: 1,
       location: {
         latitude: 50.7192018388001,
