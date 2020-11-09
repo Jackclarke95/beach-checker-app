@@ -1,9 +1,8 @@
 import React from "react";
 import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
-import data from "../data/data";
 
-const FaqPage = () => {
-  let faqs = data.faqs;
+const FaqPage = (props) => {
+  let faqs = props.faqs;
 
   const renderFaqItem = ({ item: faq }) => (
     <View style={styles.item}>

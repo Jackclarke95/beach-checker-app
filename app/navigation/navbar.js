@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -7,6 +6,7 @@ import HomePage from "../screens/home";
 import MapPage from "../screens/map";
 import BeachList from "../screens/beachList";
 import Faq from "../screens/faq";
+import data from "../data/data";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +16,7 @@ function Navbar() {
       <Tab.Navigator initialRouteName="Home">
         <Tab.Screen
           name="Home"
-          component={HomePage}
+          children={() => <HomePage notices={data.notices} />}
           options={{
             tabBarLabel: "Home",
             tabBarAccessibilityLabel: "Home page",
@@ -27,7 +27,7 @@ function Navbar() {
         />
         <Tab.Screen
           name="Beaches"
-          component={BeachList}
+          children={() => <BeachList beaches={data.beaches} user={data.user} />}
           options={{
             tabBarLabel: "Beaches",
             tabBarAccessibilityLabel: "Beaches page",
@@ -38,7 +38,7 @@ function Navbar() {
         />
         <Tab.Screen
           name="Map"
-          component={MapPage}
+          children={() => <MapPage beaches={data.beaches} />}
           options={{
             tabBarLabel: "Map",
             tabBarAccessibilityLabel: "Map page",
@@ -49,7 +49,7 @@ function Navbar() {
         />
         <Tab.Screen
           name="FAQ"
-          component={Faq}
+          children={() => <Faq faqs={data.faqs} />}
           options={{
             tabBarLabel: "FAQ",
             tabBarAccessibilityLabel: "FAQ page",

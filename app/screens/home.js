@@ -1,9 +1,8 @@
 import React from "react";
 import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
-import data from "../data/data";
 
-const HomePage = () => {
-  let notices = data.notices;
+const HomePage = (props) => {
+  let notices = props.notices;
 
   const renderNoticeItem = ({ item: notice }) => (
     <View style={styles.item}>

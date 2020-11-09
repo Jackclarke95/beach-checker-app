@@ -2,10 +2,10 @@ import React from "react";
 import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import data from "../data/data";
 
-const BeachList = () => {
-  let beaches = data.beaches;
+const BeachList = (props) => {
+  let beaches = props.beaches;
+  let user = props.user;
 
   // Sort beaches alphabetically by name then sort favourites first
   beaches
@@ -14,8 +14,8 @@ const BeachList = () => {
     })
     .sort((a, b) => {
       if (
-        data.user.favouriteBeaches.includes(a.id) &&
-        !data.user.favouriteBeaches.includes(b.id)
+        user.favouriteBeaches.includes(a.id) &&
+        !user.favouriteBeaches.includes(b.id)
       )
         return -1;
     });
@@ -23,9 +23,7 @@ const BeachList = () => {
   const renderBeachItem = ({ item: beach }) => (
     <View style={styles.item}>
       <MaterialIcon
-        name={
-          data.user.favouriteBeaches.includes(beach.id) ? `star` : `star-border`
-        }
+        name={user.favouriteBeaches.includes(beach.id) ? `star` : `star-border`}
         color="#e0be00"
         size={32}
       />
