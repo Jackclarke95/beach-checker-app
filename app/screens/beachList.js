@@ -7,8 +7,7 @@ import {
   SafeAreaView,
   Button,
 } from "react-native";
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
-import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const BeachList = (props) => {
   let beaches = props.beaches;
@@ -29,13 +28,15 @@ const BeachList = (props) => {
 
   const renderBeachItem = ({ item: beach }) => (
     <View style={styles.item}>
-      <MaterialIcon
-        name={user.favouriteBeaches.includes(beach.id) ? `star` : `star-border`}
+      <Icon
+        name={
+          user.favouriteBeaches.includes(beach.id) ? `star` : `star-outline`
+        }
         color="#e0be00"
         size={32}
       />
       <Text style={styles.title}>{beach.name}</Text>
-      <MaterialCommunityIcon
+      <Icon
         name={
           beach.congestion === 1
             ? `check-circle-outline`

@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
+import Icon from "react-native-vector-icons/MaterialIcons";
 import HomePage from "../screens/home";
 import MapPage from "../screens/map";
 import BeachList from "../screens/beachList";
@@ -20,7 +20,7 @@ function Navbar() {
             tabBarLabel: "Home",
             tabBarAccessibilityLabel: "Home page",
             tabBarIcon: ({ color }) => (
-              <MaterialIcon name="home" color={color} size={26} />
+              <Icon name="home" color={color} size={26} />
             ),
           }}
         >
@@ -38,7 +38,7 @@ function Navbar() {
             tabBarLabel: "Beaches",
             tabBarAccessibilityLabel: "Beaches page",
             tabBarIcon: ({ color }) => (
-              <MaterialIcon name="beach-access" size={26} color={color} />
+              <Icon name="beach-access" size={26} color={color} />
             ),
           }}
         >
@@ -52,7 +52,7 @@ function Navbar() {
             tabBarLabel: "Map",
             tabBarAccessibilityLabel: "Map page",
             tabBarIcon: ({ color }) => (
-              <MaterialIcon name="map" size={26} color={color} />
+              <Icon name="map" size={26} color={color} />
             ),
           }}
         >
@@ -66,7 +66,7 @@ function Navbar() {
             tabBarLabel: "FAQ",
             tabBarAccessibilityLabel: "FAQ page",
             tabBarIcon: ({ color }) => (
-              <MaterialIcon name="help" size={26} color={color} />
+              <Icon name="help" size={26} color={color} />
             ),
           }}
         >
