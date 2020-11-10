@@ -2,9 +2,13 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Colours from "../styles/colours";
 
-const FaqCard = (props) => {
-  const faq = props.faq;
-
+/**
+ * Renders a card displaying a single FAQ and its answer
+ *
+ * @param {*} { faq } the question data to render as a card
+ * @return {*} a card displaying a single FAQ and its answer
+ */
+const FaqCard = ({ faq }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.question}>

@@ -5,6 +5,14 @@ import MapView, { Polygon } from "react-native-maps";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import MasterStyles from "../styles/beachCards";
 
+/**
+ * Beach Card component displaying data about the specific beach, as well as
+ * a button to navigate to the map components
+ *
+ * @param {*} { navigation, beach } props containing navigation and beach data
+ * @return {*} a card displaying relevant data about the beach including a
+ * button to navigate to the map screen
+ */
 const BeachCard = ({ navigation, beach }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -48,7 +56,9 @@ const BeachCard = ({ navigation, beach }) => {
           <Icon
             style={[
               MasterStyles.amenityIcon,
-              beach.lifeguarded ? MasterStyles.iconEnabled : styles.iconDisabled,
+              beach.lifeguarded
+                ? MasterStyles.iconEnabled
+                : styles.iconDisabled,
             ]}
             name="lifebuoy"
             size={24}

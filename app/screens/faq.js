@@ -3,6 +3,12 @@ import { FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import FaqCard from "../components/faqCard";
 import Colours from "../styles/colours";
 
+/**
+ * Renders a list of frequntly asked questions
+ *
+ * @param {*} { route } navigation route containing FAQ data
+ * @return {*} a screen displaying a list of frequently asked question
+ */
 const FaqPage = ({ route }) => {
   const faqs = route.params.faqs;
 

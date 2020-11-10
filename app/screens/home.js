@@ -4,6 +4,12 @@ import MapView, { Polygon } from "react-native-maps";
 import NoticeCard from "../components/noticeCard";
 import Colours from "../styles/colours";
 
+/**
+ * Rebders the home page, including a preview map, a short disclaimer, and any notices
+ *
+ * @param {*} { route } navigation route containing notice and beach data
+ * @return {*} the app's home screen including a preview map and notices
+ */
 const HomePage = ({ route }) => {
   const beaches = route.params.beaches;
   const notices = route.params.notices;
@@ -30,19 +36,28 @@ const HomePage = ({ route }) => {
               key={b.id.toString()}
               coordinates={b.region}
               strokeColor={
-                b.congestion === 1 ? "darkgreen" : b.congestion === 2 ? "goldenrod" : "red"
+                b.congestion === 1
+                  ? "darkgreen"
+                  : b.congestion === 2
+                  ? "goldenrod"
+                  : "red"
               }
               fillColor={
-                b.congestion === 1 ? "#74ec849f" : b.congestion === 2 ? "#ece5769f" : "#ec74749f"
+                b.congestion === 1
+                  ? "#74ec849f"
+                  : b.congestion === 2
+                  ? "#ece5769f"
+                  : "#ec74749f"
               }
             />
           );
         })}
       </MapView>
       <Text style={styles.text}>
-        Colour coded maps are for guidance only and predict likely crowding of promenade and beach
-        areas today based on previous footfall, CCTV, weather patterns and observation. Information
-        is then updated via a live observation by the Seafront Team between 11am - 5pm.
+        Colour coded maps are for guidance only and predict likely crowding of
+        promenade and beach areas today based on previous footfall, CCTV,
+        weather patterns and observation. Information is then updated via a live
+        observation by the Seafront Team between 11am - 5pm.
       </Text>
       {!notices || notices.length === 0 ? null : ( // Do not render Notices if there are none
         <>

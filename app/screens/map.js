@@ -3,10 +3,20 @@ import { View, StyleSheet, SafeAreaView } from "react-native";
 import MapView, { Marker, Polygon } from "react-native-maps";
 import BeachCard from "../components/beachCard";
 
+/**
+ * Renders the map page, containing a navigable map that displays all beaches as well
+ * as a card displaying data about the selected beach
+ *
+ * @param {*} { route } navigation route containing beach data
+ * @return {*} a screen displaying a map that displays beaches, and a card displaying
+ * data about the selected beach
+ */
 const MapPage = ({ route }) => {
   const beaches = route.params.beaches;
 
-  const [currentBeach, setCurrentBeach] = useState(route.params.activeBeach ?? null);
+  const [currentBeach, setCurrentBeach] = useState(
+    route.params.activeBeach ?? null
+  );
 
   return (
     <SafeAreaView>
@@ -30,7 +40,11 @@ const MapPage = ({ route }) => {
                     setCurrentBeach(beach);
                   }}
                   description={`Congestion: ${
-                    beach.congestion === 1 ? "Low" : beach.congestion === 2 ? "Medium" : "High"
+                    beach.congestion === 1
+                      ? "Low"
+                      : beach.congestion === 2
+                      ? "Medium"
+                      : "High"
                   }`}
                 />
                 <Polygon

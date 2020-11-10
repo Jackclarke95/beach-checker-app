@@ -10,6 +10,11 @@ import data from "../data/data";
 
 const Tab = createBottomTabNavigator();
 
+/**
+ * Renders a navigation bar and handles navigation to the screens within the app
+ *
+ * @return {*} the app's navigation bar
+ */
 function Navbar() {
   return (
     <NavigationContainer>
@@ -21,7 +26,9 @@ function Navbar() {
           options={{
             tabBarLabel: "Home",
             tabBarAccessibilityLabel: "Home page",
-            tabBarIcon: ({ color }) => <Icon name="home" color={color} size={26} />,
+            tabBarIcon: ({ color }) => (
+              <Icon name="home" color={color} size={26} />
+            ),
           }}
         />
         <Tab.Screen
@@ -31,7 +38,9 @@ function Navbar() {
           options={{
             tabBarLabel: "Beaches",
             tabBarAccessibilityLabel: "Beaches page",
-            tabBarIcon: ({ color }) => <Icon name="beach-access" size={26} color={color} />,
+            tabBarIcon: ({ color }) => (
+              <Icon name="beach-access" size={26} color={color} />
+            ),
           }}
         />
         <Tab.Screen
@@ -47,7 +56,9 @@ function Navbar() {
           options={{
             tabBarLabel: "Map",
             tabBarAccessibilityLabel: "Map page",
-            tabBarIcon: ({ color }) => <Icon name="map" size={26} color={color} />,
+            tabBarIcon: ({ color }) => (
+              <Icon name="map" size={26} color={color} />
+            ),
           }}
         />
         <Tab.Screen
@@ -57,7 +68,9 @@ function Navbar() {
           options={{
             tabBarLabel: "FAQ",
             tabBarAccessibilityLabel: "FAQ page",
-            tabBarIcon: ({ color }) => <Icon name="help" size={26} color={color} />,
+            tabBarIcon: ({ color }) => (
+              <Icon name="help" size={26} color={color} />
+            ),
           }}
         />
       </Tab.Navigator>

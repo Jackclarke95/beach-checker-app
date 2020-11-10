@@ -665,9 +665,6 @@ const data = {
         "Groyne renewal works are taking place between Alum & Middle Chine until Spring 2021.",
     },
   ],
-  user: {
-    favouriteBeaches: [3, 4, 5, 15, 23],
-  },
   faqs: [
     {
       id: 1,
@@ -689,7 +686,8 @@ const data = {
     },
     {
       id: 4,
-      question: "I have a sight impairment and cannot distinguish the colour status of the beach.",
+      question:
+        "I have a sight impairment and cannot distinguish the colour status of the beach.",
       answer:
         "We’re working on that! In the meantime, when you tap on any section of the beach, the congestion status is written in words.",
     },
@@ -701,13 +699,15 @@ const data = {
     },
     {
       id: 6,
-      question: "How do you collect data to update the beach congestion levels?",
+      question:
+        "How do you collect data to update the beach congestion levels?",
       answer:
         "The App is updated based on a combination of historic weather and footfall data as well as CCTV footage in certain areas. Mainly, though, the Seafront Ranger team update based on visual observation of the beach.",
     },
     {
       id: 7,
-      question: "Why does the App show crowded beaches in the evening and at night?",
+      question:
+        "Why does the App show crowded beaches in the evening and at night?",
       answer:
         "The last daily update of the App takes place at 5pm every day. This reflects the crowds at that time. The App is next updated at 9am the following morning.",
     },
@@ -719,7 +719,8 @@ const data = {
     },
     {
       id: 9,
-      question: "Are there any plans to develop the functionality of the App in the future?",
+      question:
+        "Are there any plans to develop the functionality of the App in the future?",
       answer:
         "Yes. We have just secured funding to develop the next evolution of the App. This will allow the app the automatically draw off data from footfall sensors, CCTV and weather to provide ‘live’ updates every hour. We also have ambitions to show car park availability and greater levels of information around amenities across the seafront from toilet opening times to café and restaurant details. These will take a little time to develop, so please bear with us.",
     },

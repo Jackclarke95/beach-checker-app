@@ -3,6 +3,12 @@ import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import MasterStyles from "../styles/beachCards";
 
+/**
+ * Renders a beach card components containing data about the beach
+ *
+ * @param {*} { beach } The beach whose data to render
+ * @return {*} a card displaying relevant data about the beach
+ */
 const BeachCard = ({ beach }) => {
   return beach === null ? (
     <View style={[styles.container, MasterStyles.containerEmpty]}>
@@ -52,7 +58,9 @@ const BeachCard = ({ beach }) => {
             <Icon
               style={[
                 MasterStyles.amenityIcon,
-                beach.lifeguarded ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
+                beach.lifeguarded
+                  ? MasterStyles.iconEnabled
+                  : MasterStyles.iconDisabled,
               ]}
               name="lifebuoy"
               size={24}
@@ -65,12 +73,16 @@ const BeachCard = ({ beach }) => {
             <Icon
               style={[
                 MasterStyles.amenityIcon,
-                beach.toilets ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
+                beach.toilets
+                  ? MasterStyles.iconEnabled
+                  : MasterStyles.iconDisabled,
               ]}
               name="human-male-female"
               size={24}
             />
-            <Text style={styles.amenityFont}>{`Toilets: ${beach.toilets ? "Yes" : "No"}`}</Text>
+            <Text style={styles.amenityFont}>{`Toilets: ${
+              beach.toilets ? "Yes" : "No"
+            }`}</Text>
           </View>
         </View>
         <View style={styles.amenityRow}>
@@ -78,23 +90,31 @@ const BeachCard = ({ beach }) => {
             <Icon
               style={[
                 MasterStyles.amenityIcon,
-                beach.dogs ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
+                beach.dogs
+                  ? MasterStyles.iconEnabled
+                  : MasterStyles.iconDisabled,
               ]}
               name="dog-side"
               size={24}
             />
-            <Text style={styles.amenityFont}>{`Dogs: ${beach.dogs ? "Yes" : "No"}`}</Text>
+            <Text style={styles.amenityFont}>{`Dogs: ${
+              beach.dogs ? "Yes" : "No"
+            }`}</Text>
           </View>
           <View style={styles.amenity}>
             <Icon
               style={[
                 MasterStyles.amenityIcon,
-                beach.cycling ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
+                beach.cycling
+                  ? MasterStyles.iconEnabled
+                  : MasterStyles.iconDisabled,
               ]}
               name="bike"
               size={24}
             />
-            <Text style={styles.amenityFont}>{`Cycling: ${beach.cycling ? "Yes" : "No"}`}</Text>
+            <Text style={styles.amenityFont}>{`Cycling: ${
+              beach.cycling ? "Yes" : "No"
+            }`}</Text>
           </View>
         </View>
         <View style={styles.infoRow}>
