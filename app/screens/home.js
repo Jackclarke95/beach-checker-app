@@ -15,6 +15,10 @@ const HomePage = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <MapView
+        pitchEnabled={false}
+        rotateEnabled={false}
+        zoomEnabled={false}
+        scrollEnabled={false}
         style={{ height: 150, width: "100%" }}
         initialRegion={{
           latitude: 50.7045,
@@ -29,7 +33,6 @@ const HomePage = (props) => {
               <Polygon
                 key={b.id.toString()}
                 coordinates={b.region}
-                onPress={() => setCurrentBeach(b)}
                 strokeColor={
                   b.congestion === 1
                     ? "darkgreen"
