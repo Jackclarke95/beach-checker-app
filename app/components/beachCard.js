@@ -6,9 +6,7 @@ const BeachCard = (props) => {
   if (props.beach === null) {
     return (
       <View style={[styles.container, styles.containerEmpty]}>
-        <Text style={styles.title}>
-          Zoom in and select a beach to learn more
-        </Text>
+        <Text style={styles.title}>Zoom in and select a beach to learn more</Text>
       </View>
     );
   }
@@ -70,52 +68,34 @@ const BeachCard = (props) => {
           </View>
           <View style={styles.amenity}>
             <Icon
-              style={[
-                styles.amenityIcon,
-                beach.toilets ? styles.iconEnabled : styles.iconDisabled,
-              ]}
+              style={[styles.amenityIcon, beach.toilets ? styles.iconEnabled : styles.iconDisabled]}
               name="human-male-female"
               size={24}
             />
-            <Text style={styles.amenityFont}>{`Toilets: ${
-              beach.toilets ? "Yes" : "No"
-            }`}</Text>
+            <Text style={styles.amenityFont}>{`Toilets: ${beach.toilets ? "Yes" : "No"}`}</Text>
           </View>
         </View>
         <View style={styles.amenityRow}>
           <View style={styles.amenity}>
             <Icon
-              style={[
-                styles.amenityIcon,
-                beach.dogs ? styles.iconEnabled : styles.iconDisabled,
-              ]}
+              style={[styles.amenityIcon, beach.dogs ? styles.iconEnabled : styles.iconDisabled]}
               name="dog-side"
               size={24}
             />
-            <Text style={styles.amenityFont}>{`Dogs: ${
-              beach.dogs ? "Yes" : "No"
-            }`}</Text>
+            <Text style={styles.amenityFont}>{`Dogs: ${beach.dogs ? "Yes" : "No"}`}</Text>
           </View>
           <View style={styles.amenity}>
             <Icon
-              style={[
-                styles.amenityIcon,
-                beach.cycling ? styles.iconEnabled : styles.iconDisabled,
-              ]}
+              style={[styles.amenityIcon, beach.cycling ? styles.iconEnabled : styles.iconDisabled]}
               name="bike"
               size={24}
             />
-            <Text style={styles.amenityFont}>{`Cycling: ${
-              beach.cycling ? "Yes" : "No"
-            }`}</Text>
+            <Text style={styles.amenityFont}>{`Cycling: ${beach.cycling ? "Yes" : "No"}`}</Text>
           </View>
         </View>
         <View style={styles.infoRow}>
           <Icon
-            style={[
-              styles.amenityIcon,
-              beach.bbq ? styles.iconEnabled : styles.iconDisabled,
-            ]}
+            style={[styles.amenityIcon, beach.bbq ? styles.iconEnabled : styles.iconDisabled]}
             name="grill"
             size={24}
           />

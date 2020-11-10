@@ -19,55 +19,37 @@ function Navbar() {
           options={{
             tabBarLabel: "Home",
             tabBarAccessibilityLabel: "Home page",
-            tabBarIcon: ({ color }) => (
-              <Icon name="home" color={color} size={26} />
-            ),
+            tabBarIcon: ({ color }) => <Icon name="home" color={color} size={26} />,
           }}
         >
-          {(props) => (
-            <HomePage
-              {...props}
-              notices={data.notices}
-              beaches={data.beaches}
-            />
-          )}
+          {(props) => <HomePage {...props} notices={data.notices} beaches={data.beaches} />}
         </Tab.Screen>
         <Tab.Screen
           name="Beaches"
           options={{
             tabBarLabel: "Beaches",
             tabBarAccessibilityLabel: "Beaches page",
-            tabBarIcon: ({ color }) => (
-              <Icon name="beach-access" size={26} color={color} />
-            ),
+            tabBarIcon: ({ color }) => <Icon name="beach-access" size={26} color={color} />,
           }}
         >
-          {(props) => (
-            <BeachList {...props} beaches={data.beaches} user={data.user} />
-          )}
+          {(props) => <BeachList {...props} beaches={data.beaches} user={data.user} />}
         </Tab.Screen>
         <Tab.Screen
           name="Map"
           options={{
             tabBarLabel: "Map",
             tabBarAccessibilityLabel: "Map page",
-            tabBarIcon: ({ color }) => (
-              <Icon name="map" size={26} color={color} />
-            ),
+            tabBarIcon: ({ color }) => <Icon name="map" size={26} color={color} />,
           }}
         >
-          {(props) => (
-            <MapPage {...props} beaches={data.beaches} activeBeach={null} />
-          )}
+          {(props) => <MapPage {...props} beaches={data.beaches} activeBeach={null} />}
         </Tab.Screen>
         <Tab.Screen
           name="FAQ"
           options={{
             tabBarLabel: "FAQ",
             tabBarAccessibilityLabel: "FAQ page",
-            tabBarIcon: ({ color }) => (
-              <Icon name="help" size={26} color={color} />
-            ),
+            tabBarIcon: ({ color }) => <Icon name="help" size={26} color={color} />,
           }}
         >
           {(props) => <FaqPage {...props} faqs={data.faqs} />}

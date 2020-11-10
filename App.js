@@ -2,7 +2,6 @@ import React from "react";
 import { StatusBar, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Navbar from "./app/navigation/navbar";
 import Heading from "./app/navigation/header";
-import Home from "./app/screens/home";
 
 export default function App() {
   console.log("Application Started.", new Date().toLocaleTimeString());

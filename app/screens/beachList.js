@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  Button,
-} from "react-native";
+import { View, FlatList, StyleSheet, Text, SafeAreaView, Button } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const BeachList = (props) => {
@@ -19,19 +12,13 @@ const BeachList = (props) => {
       return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
     })
     .sort((a, b) => {
-      if (
-        user.favouriteBeaches.includes(a.id) &&
-        !user.favouriteBeaches.includes(b.id)
-      )
-        return -1;
+      if (user.favouriteBeaches.includes(a.id) && !user.favouriteBeaches.includes(b.id)) return -1;
     });
 
   const renderBeachItem = ({ item: beach }) => (
     <View style={styles.item}>
       <Icon
-        name={
-          user.favouriteBeaches.includes(beach.id) ? `star` : `star-outline`
-        }
+        name={user.favouriteBeaches.includes(beach.id) ? `star` : `star-outline`}
         color="#e0be00"
         size={32}
       />
@@ -44,13 +31,7 @@ const BeachList = (props) => {
             ? `alert-circle-outline`
             : `minus-circle-outline`
         }
-        color={
-          beach.congestion === 1
-            ? "lightgreen" // Green - low congestion
-            : beach.congestion === 2
-            ? "goldenrod" // Yellow - medium congestion
-            : "red" // Red - high congestion
-        }
+        color={beach.congestion === 1 ? "lightgreen" : beach.congestion === 2 ? "goldenrod" : "red"}
         size={32}
       />
     </View>
@@ -60,15 +41,9 @@ const BeachList = (props) => {
     <SafeAreaView style={styles.container}>
       <Button
         title="Test"
-        onPress={() =>
-          props.navigation.navigate("Map", { activeBeach: beaches[2] })
-        }
+        onPress={() => props.navigation.navigate("Map", { activeBeach: beaches[2] })}
       ></Button>
-      <FlatList
-        data={beaches}
-        renderItem={renderBeachItem}
-        keyExtractor={(b) => b.id.toString()}
-      />
+      <FlatList data={beaches} renderItem={renderBeachItem} keyExtractor={(b) => b.id.toString()} />
     </SafeAreaView>
   );
 };
