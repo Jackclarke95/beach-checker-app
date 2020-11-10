@@ -3,10 +3,7 @@ import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import MapView, { Polygon } from "react-native-maps";
 import NoticeCard from "../components/noticeCard";
 
-const HomePage = (props) => {
-  let notices = props.notices;
-  let beaches = props.beaches;
-
+const HomePage = ({ navigation, route, notices, beaches }) => {
   const renderNoticeItem = ({ item: notice }) => <NoticeCard notice={notice} />;
 
   return (
@@ -27,34 +24,23 @@ const HomePage = (props) => {
       >
         {beaches.map((b) => {
           return (
-            <>
-              <Polygon
-                key={b.id.toString()}
-                coordinates={b.region}
-                strokeColor={
-                  b.congestion === 1
-                    ? "darkgreen"
-                    : b.congestion === 2
-                    ? "goldenrod"
-                    : "red"
-                }
-                fillColor={
-                  b.congestion === 1
-                    ? "#74ec849f"
-                    : b.congestion === 2
-                    ? "#ece5769f"
-                    : "#ec74749f"
-                }
-              />
-            </>
+            <Polygon
+              key={b.id.toString()}
+              coordinates={b.region}
+              strokeColor={
+                b.congestion === 1 ? "darkgreen" : b.congestion === 2 ? "goldenrod" : "red"
+              }
+              fillColor={
+                b.congestion === 1 ? "#74ec849f" : b.congestion === 2 ? "#ece5769f" : "#ec74749f"
+              }
+            />
           );
         })}
       </MapView>
       <Text style={styles.text}>
-        Colour coded maps are for guidance only and predict likely crowding of
-        promenade and beach areas today based on previous footfall, CCTV,
-        weather patterns and observation. Information is then updated via a live
-        observation by the Seafront Team between 11am - 5pm
+        Colour coded maps are for guidance only and predict likely crowding of promenade and beach
+        areas today based on previous footfall, CCTV, weather patterns and observation. Information
+        is then updated via a live observation by the Seafront Team between 11am - 5pm
       </Text>
       {!notices || notices.length === 0 ? null : ( // Do not render Notices if there are none
         <>
