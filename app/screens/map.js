@@ -3,16 +3,10 @@ import { View, StyleSheet, SafeAreaView } from "react-native";
 import MapView, { Marker, Polygon } from "react-native-maps";
 import BeachCard from "../components/beachCard";
 
-export default MapPage = ({ navigation, route, beaches, initialRegion }) => {
-  let activeBeach = null;
-  const [currentBeach, setCurrentBeach] = useState(activeBeach);
-
-  if (route.params) {
-    activeBeach = route.params.activeBeach;
-    console.log(activeBeach);
-  }
-
-  setCurrentBeach(activeBeach);
+const MapPage = (props) => {
+  const beaches = props.beaches;
+  const initialRegion = props.initialRegion;
+  const activeBeach = props.activeBeach;
 
   const [region, setRegion] = useState(
     initialRegion
@@ -25,10 +19,16 @@ export default MapPage = ({ navigation, route, beaches, initialRegion }) => {
         }
   );
 
+  const [currentBeach, setCurrentBeach] = useState(activeBeach);
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <MapView style={styles.map} initialRegion={region} onRegionChange={setRegion}>
+        <MapView
+          style={styles.map}
+          initialRegion={region}
+          onRegionChange={setRegion}
+        >
           {beaches.map((b) => {
             return (
               <>
@@ -38,7 +38,11 @@ export default MapPage = ({ navigation, route, beaches, initialRegion }) => {
                   title={b.name}
                   onPress={() => setCurrentBeach(b)}
                   description={`Congestion: ${
-                    b.congestion === 1 ? "Low" : b.congestion === 2 ? "Medium" : "High"
+                    b.congestion === 1
+                      ? "Low"
+                      : b.congestion === 2
+                      ? "Medium"
+                      : "High"
                   }`}
                 />
                 <Polygon
@@ -46,7 +50,11 @@ export default MapPage = ({ navigation, route, beaches, initialRegion }) => {
                   coordinates={b.region}
                   onPress={() => setCurrentBeach(b)}
                   strokeColor={
-                    b.congestion === 1 ? "darkgreen" : b.congestion === 2 ? "goldenrod" : "red"
+                    b.congestion === 1
+                      ? "darkgreen"
+                      : b.congestion === 2
+                      ? "goldenrod"
+                      : "red"
                   }
                   fillColor={
                     b.congestion === 1
@@ -82,3 +90,5 @@ const styles = StyleSheet.create({
   heading: { fontSize: 36, textAlign: "center" },
   title: { fontSize: 16 },
 });
+
+export default MapPage;
