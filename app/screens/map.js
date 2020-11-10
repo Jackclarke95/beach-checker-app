@@ -3,46 +3,34 @@ import { View, StyleSheet, SafeAreaView } from "react-native";
 import MapView, { Marker, Polygon } from "react-native-maps";
 import BeachCard from "../components/beachCard";
 
-const MapPage = (props) => {
-  const beaches = props.beaches;
-  const initialRegion = props.initialRegion;
-  const activeBeach = props.activeBeach;
+const MapPage = ({ route }) => {
+  const beaches = route.params.beaches;
 
-  const [region, setRegion] = useState(
-    initialRegion
-      ? initialRegion
-      : {
-          latitude: 50.7045,
-          longitude: -1.82,
-          latitudeDelta: 0,
-          longitudeDelta: 0.28,
-        }
-  );
-
-  const [currentBeach, setCurrentBeach] = useState(activeBeach);
+  const [currentBeach, setCurrentBeach] = useState(route.params.activeBeach ?? null);
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <MapView
           style={styles.map}
-          initialRegion={region}
-          onRegionChange={setRegion}
+          initialRegion={{
+            latitude: route.params.latitude,
+            longitude: route.params.longitude,
+            latitudeDelta: route.params.latitudeDelta,
+            longitudeDelta: route.params.longitudeDelta,
+          }}
         >
           {beaches.map((beach) => {
             return (
               <>
                 <Marker
-                  opacity={region.longitudeDelta < 0.08 ? 1 : 0}
                   coordinate={beach.location}
                   title={beach.name}
-                  onPress={() => setCurrentBeach(beach)}
+                  onPress={() => {
+                    setCurrentBeach(beach);
+                  }}
                   description={`Congestion: ${
-                    beach.congestion === 1
-                      ? "Low"
-                      : beach.congestion === 2
-                      ? "Medium"
-                      : "High"
+                    beach.congestion === 1 ? "Low" : beach.congestion === 2 ? "Medium" : "High"
                   }`}
                 />
                 <Polygon

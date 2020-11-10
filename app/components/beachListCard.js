@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { Button, View, StyleSheet, Text } from "react-native";
+import { TabActions } from "@react-navigation/native";
 import MapView, { Polygon } from "react-native-maps";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-const BeachCard = ({ beach }) => {
+const BeachCard = ({ navigation, beach }) => {
   const [expanded, setExpanded] = useState(false);
+
+  function jumpToMap() {
+    navigation.dispatch(TabActions.jumpTo("Map"));
+  }
 
   return (
     <View
-      onTouchEnd={() => {
-        setExpanded(!expanded);
-        console.log(expanded);
-      }}
+      onTouchEnd={() => setExpanded(!expanded)}
       style={[
         styles.container,
         beach.congestion === 1
@@ -37,7 +39,7 @@ const BeachCard = ({ beach }) => {
         <Text style={styles.title}>{beach.name}</Text>
         <Icon
           style={styles.amenityIcon}
-          name={expanded ? "chevron-up-circle-outline" : "chevron-down-circle-outline"}
+          name={expanded ? "chevron-double-up" : "chevron-double-down"}
           size={28}
         />
       </View>
@@ -88,34 +90,41 @@ const BeachCard = ({ beach }) => {
           </View>
         ) : null}
         {expanded ? (
-          <MapView
-            pitchEnabled={false}
-            rotateEnabled={false}
-            zoomEnabled={false}
-            scrollEnabled={false}
-            style={styles.map}
-            initialRegion={{
-              latitude: beach.location.latitude,
-              longitude: beach.location.longitude,
-              latitudeDelta: 0,
-              longitudeDelta: 0.04,
-            }}
-          >
-            <Polygon
-              key={beach.id.toString()}
-              coordinates={beach.region}
-              strokeColor={
-                beach.congestion === 1 ? "darkgreen" : beach.congestion === 2 ? "goldenrod" : "red"
-              }
-              fillColor={
-                beach.congestion === 1
-                  ? "#74ec849f"
-                  : beach.congestion === 2
-                  ? "#ece5769f"
-                  : "#ec74749f"
-              }
-            />
-          </MapView>
+          <>
+            <MapView
+              pitchEnabled={false}
+              rotateEnabled={false}
+              zoomEnabled={false}
+              scrollEnabled={false}
+              style={styles.map}
+              initialRegion={{
+                latitude: beach.location.latitude,
+                longitude: beach.location.longitude,
+                latitudeDelta: 0,
+                longitudeDelta: 0.04,
+              }}
+            >
+              <Polygon
+                key={beach.id.toString()}
+                coordinates={beach.region}
+                strokeColor={
+                  beach.congestion === 1
+                    ? "darkgreen"
+                    : beach.congestion === 2
+                    ? "goldenrod"
+                    : "red"
+                }
+                fillColor={
+                  beach.congestion === 1
+                    ? "#74ec849f"
+                    : beach.congestion === 2
+                    ? "#ece5769f"
+                    : "#ec74749f"
+                }
+              />
+            </MapView>
+            <Button title="Explore on Map" onPress={jumpToMap} />
+          </>
         ) : null}
       </View>
     </View>

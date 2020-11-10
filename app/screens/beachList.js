@@ -1,14 +1,12 @@
 import React from "react";
-import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { FlatList, StyleSheet, SafeAreaView } from "react-native";
 import BeachListCard from "../components/beachListCard";
 
-const BeachList = (props) => {
-  let beaches = props.beaches;
-  let user = props.user;
+const BeachList = ({ navigation, route }) => {
+  const user = route.params.user;
 
   // Sort beaches alphabetically by name then sort favourites first
-  beaches
+  let beaches = route.params.beaches
     .sort((a, b) => {
       return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
     })
@@ -20,7 +18,7 @@ const BeachList = (props) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={beaches}
-        renderItem={({ item: beach }) => <BeachListCard beach={beach} />}
+        renderItem={({ item: beach }) => <BeachListCard beach={beach} navigation={navigation} />}
         keyExtractor={(b) => b.id.toString()}
       />
     </SafeAreaView>

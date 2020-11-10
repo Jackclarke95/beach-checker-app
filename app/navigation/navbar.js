@@ -16,44 +16,50 @@ function Navbar() {
       <Tab.Navigator initialRouteName="Home">
         <Tab.Screen
           name="Home"
+          component={HomePage}
+          initialParams={{ beaches: data.beaches, notices: data.notices }}
           options={{
             tabBarLabel: "Home",
             tabBarAccessibilityLabel: "Home page",
             tabBarIcon: ({ color }) => <Icon name="home" color={color} size={26} />,
           }}
-        >
-          {(props) => <HomePage {...props} notices={data.notices} beaches={data.beaches} />}
-        </Tab.Screen>
+        />
         <Tab.Screen
           name="Beaches"
+          component={BeachList}
+          initialParams={{ beaches: data.beaches, user: data.user }}
           options={{
             tabBarLabel: "Beaches",
             tabBarAccessibilityLabel: "Beaches page",
             tabBarIcon: ({ color }) => <Icon name="beach-access" size={26} color={color} />,
           }}
-        >
-          {(props) => <BeachList {...props} beaches={data.beaches} user={data.user} />}
-        </Tab.Screen>
+        />
         <Tab.Screen
           name="Map"
+          component={MapPage}
+          initialParams={{
+            beaches: data.beaches,
+            latitude: 50.7045,
+            longitude: -1.82,
+            latitudeDelta: 0,
+            longitudeDelta: 0.28,
+          }}
           options={{
             tabBarLabel: "Map",
             tabBarAccessibilityLabel: "Map page",
             tabBarIcon: ({ color }) => <Icon name="map" size={26} color={color} />,
           }}
-        >
-          {(props) => <MapPage {...props} beaches={data.beaches} activeBeach={null} />}
-        </Tab.Screen>
+        />
         <Tab.Screen
           name="FAQ"
+          component={FaqPage}
+          initialParams={{ faqs: data.faqs }}
           options={{
             tabBarLabel: "FAQ",
             tabBarAccessibilityLabel: "FAQ page",
             tabBarIcon: ({ color }) => <Icon name="help" size={26} color={color} />,
           }}
-        >
-          {(props) => <FaqPage {...props} faqs={data.faqs} />}
-        </Tab.Screen>
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

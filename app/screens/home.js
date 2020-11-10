@@ -1,13 +1,11 @@
 import React from "react";
-import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
+import { FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import MapView, { Polygon } from "react-native-maps";
 import NoticeCard from "../components/noticeCard";
 
-const HomePage = (props) => {
-  let notices = props.notices;
-  let beaches = props.beaches;
-
-  const renderNoticeItem = ({ item: notice }) => <NoticeCard notice={notice} />;
+const HomePage = ({ route }) => {
+  const beaches = route.params.beaches;
+  const notices = route.params.notices;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -43,14 +41,14 @@ const HomePage = (props) => {
       <Text style={styles.text}>
         Colour coded maps are for guidance only and predict likely crowding of promenade and beach
         areas today based on previous footfall, CCTV, weather patterns and observation. Information
-        is then updated via a live observation by the Seafront Team between 11am - 5pm
+        is then updated via a live observation by the Seafront Team between 11am - 5pm.
       </Text>
       {!notices || notices.length === 0 ? null : ( // Do not render Notices if there are none
         <>
           <Text style={styles.title}>Notices</Text>
           <FlatList
             data={notices}
-            renderItem={renderNoticeItem}
+            renderItem={({ item: notice }) => <NoticeCard notice={notice} />}
             keyExtractor={(n) => n.id.toString()}
           />
         </>

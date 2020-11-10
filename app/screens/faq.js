@@ -2,8 +2,8 @@ import React from "react";
 import { FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import FaqCard from "../components/faqCard";
 
-const FaqPage = (props) => {
-  let faqs = props.faqs;
+const FaqPage = ({ route }) => {
+  const faqs = route.params.faqs;
 
   return (
     <SafeAreaView style={styles.container}>
