@@ -33,7 +33,7 @@ const MapPage = (props) => {
             return (
               <>
                 <Marker
-                  opacity={region.longitudeDelta < 0.08 ? 1 : 0} // Only show markers when zoomed in enough
+                  opacity={region.longitudeDelta < 0.08 ? 1 : 0}
                   coordinate={b.location}
                   title={b.name}
                   onPress={() => setCurrentBeach(b)}
@@ -51,17 +51,17 @@ const MapPage = (props) => {
                   onPress={() => setCurrentBeach(b)}
                   strokeColor={
                     b.congestion === 1
-                      ? "darkgreen" // Green - low congestion
+                      ? "darkgreen"
                       : b.congestion === 2
-                      ? "goldenrod" // Yellow - medium congestion
-                      : "red" // Red - high congestion
+                      ? "goldenrod"
+                      : "red"
                   }
                   fillColor={
                     b.congestion === 1
-                      ? "#74ec849f" // Green - low congestion
+                      ? "#74ec849f"
                       : b.congestion === 2
-                      ? "#ece5769f" // Yellow - medium congestion
-                      : "#ec74749f" // Red - high congestion
+                      ? "#ece5769f"
+                      : "#ec74749f"
                   }
                 />
               </>
