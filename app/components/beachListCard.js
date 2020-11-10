@@ -58,7 +58,7 @@ const BeachCard = ({ navigation, beach }) => {
               MasterStyles.amenityIcon,
               beach.lifeguarded
                 ? MasterStyles.iconEnabled
-                : styles.iconDisabled,
+                : MasterStyles.iconDisabled,
             ]}
             name="lifebuoy"
             size={24}
@@ -68,7 +68,7 @@ const BeachCard = ({ navigation, beach }) => {
           <Icon
             style={[
               MasterStyles.amenityIcon,
-              beach.toilets ? MasterStyles.iconEnabled : styles.iconDisabled,
+              beach.toilets ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
             ]}
             name="human-male-female"
             size={24}
@@ -78,7 +78,7 @@ const BeachCard = ({ navigation, beach }) => {
           <Icon
             style={[
               MasterStyles.amenityIcon,
-              beach.dogs ? MasterStyles.iconEnabled : styles.iconDisabled,
+              beach.dogs ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
             ]}
             name="dog-side"
             size={24}
@@ -88,7 +88,7 @@ const BeachCard = ({ navigation, beach }) => {
           <Icon
             style={[
               MasterStyles.amenityIcon,
-              beach.cycling ? MasterStyles.iconEnabled : styles.iconDisabled,
+              beach.cycling ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
             ]}
             name="bike"
             size={24}
@@ -98,7 +98,7 @@ const BeachCard = ({ navigation, beach }) => {
           <Icon
             style={[
               MasterStyles.amenityIcon,
-              beach.bbq ? MasterStyles.iconEnabled : styles.iconDisabled,
+              beach.bbq ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
             ]}
             name="grill"
             size={24}
