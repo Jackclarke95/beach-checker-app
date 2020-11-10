@@ -5,7 +5,7 @@ import Heading from "./app/navigation/header";
 import Home from "./app/screens/home";
 
 export default function App() {
-  console.log("Application Started.", new Date());
+  console.log("Application Started.", new Date().toLocaleTimeString());
 
   return (
     <View style={styles.container}>

@@ -7,7 +7,7 @@ const BeachCard = (props) => {
     return (
       <View style={[styles.container, styles.containerEmpty]}>
         <Text style={styles.title}>
-          Zoom in to select a beach to learn more
+          Zoom in and select a beach to learn more
         </Text>
       </View>
     );
