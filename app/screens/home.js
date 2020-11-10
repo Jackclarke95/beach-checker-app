@@ -50,6 +50,12 @@ const HomePage = (props) => {
           );
         })}
       </MapView>
+      <Text style={styles.text}>
+        Colour coded maps are for guidance only and predict likely crowding of
+        promenade and beach areas today based on previous footfall, CCTV,
+        weather patterns and observation. Information is then updated via a live
+        observation by the Seafront Team between 11am - 5pm
+      </Text>
       {!notices || notices.length === 0 ? null : ( // Do not render Notices if there are none
         <>
           <Text style={styles.title}>Notices</Text>
@@ -72,6 +78,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginVertical: 8,
     marginHorizontal: 8,
+  },
+  text: {
+    fontSize: 14,
   },
   title: {
     padding: 8,

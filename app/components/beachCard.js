@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 8,
     marginVertical: 8,
-    height: 170,
+    height: 180,
   },
   containerEmpty: {
     backgroundColor: "lightgray",
