@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import HomePage from "../screens/home";
-import MapPage from "../screens/map";
+import  MapPage from "../screens/map";
 import BeachList from "../screens/beachList";
 import Faq from "../screens/faq";
 import data from "../data/data";

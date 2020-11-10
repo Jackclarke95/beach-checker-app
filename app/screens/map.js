@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import { View, StyleSheet, SafeAreaView } from "react-native";
 import MapView, { Marker, Polygon } from "react-native-maps";
+import BeachCard from "../components/beachCard";
 
 const MapPage = (props) => {
   const beaches = props.beaches;
+  const initialRegion = props.initialRegion;
 
-  const [region, setRegion] = useState({
-    latitude: 50.7045,
-    longitude: -1.8355,
-    latitudeDelta: 0,
-    longitudeDelta: 0.26,
-  });
+  const [region, setRegion] = useState(
+    initialRegion
+      ? initialRegion
+      : {
+          latitude: 50.7045,
+          longitude: -1.82,
+          latitudeDelta: 0,
+          longitudeDelta: 0.28,
+        }
+  );
+
+  const [currentBeach, setCurrentBeach] = useState(null);
 
   return (
     <SafeAreaView>
@@ -27,6 +35,7 @@ const MapPage = (props) => {
                   opacity={region.longitudeDelta < 0.08 ? 1 : 0} // Only show markers when zoomed in enough
                   coordinate={b.location}
                   title={b.name}
+                  onPress={() => setCurrentBeach(b)}
                   description={`Congestion: ${
                     b.congestion === 1
                       ? "Low"
@@ -38,6 +47,7 @@ const MapPage = (props) => {
                 <Polygon
                   key={b.id.toString()}
                   coordinates={b.region}
+                  onPress={() => setCurrentBeach(b)}
                   strokeColor={
                     b.congestion === 1
                       ? "darkgreen" // Green - low congestion
@@ -57,6 +67,7 @@ const MapPage = (props) => {
             );
           })}
         </MapView>
+        <BeachCard beach={currentBeach} />
       </View>
     </SafeAreaView>
   );
@@ -73,7 +84,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: "100%",
-    height: "100%",
+    flexGrow: 1,
   },
   heading: { fontSize: 36, textAlign: "center" },
   title: { fontSize: 16 },

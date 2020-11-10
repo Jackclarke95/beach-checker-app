@@ -1,6 +1,6 @@
 import React from "react";
 import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
-import BeachCard from "../components/beachCard";
+import MapView, { Polygon } from "react-native-maps";
 
 const HomePage = (props) => {
   let notices = props.notices;
@@ -14,7 +14,41 @@ const HomePage = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <BeachCard beach={beaches[7]}></BeachCard>
+      <MapView
+        style={{ height: 150, width: "100%" }}
+        initialRegion={{
+          latitude: 50.7045,
+          longitude: -1.82,
+          latitudeDelta: 0,
+          longitudeDelta: 0.28,
+        }}
+      >
+        {beaches.map((b) => {
+          return (
+            <>
+              <Polygon
+                key={b.id.toString()}
+                coordinates={b.region}
+                onPress={() => setCurrentBeach(b)}
+                strokeColor={
+                  b.congestion === 1
+                    ? "darkgreen"
+                    : b.congestion === 2
+                    ? "darkorange"
+                    : "red"
+                }
+                fillColor={
+                  b.congestion === 1
+                    ? "#74ec849f"
+                    : b.congestion === 2
+                    ? "#ece5769f"
+                    : "#ec74749f"
+                }
+              />
+            </>
+          );
+        })}
+      </MapView>
       {!notices || notices.length === 0 ? null : ( // Do not render Notices if there are none
         <FlatList
           data={notices}
@@ -32,6 +66,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    marginVertical: 8,
+    marginHorizontal: 8,
   },
   itemFont: {
     fontSize: 24,
@@ -40,8 +76,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     backgroundColor: "#ff8888",
     padding: 8,
-    marginVertical: 4,
-    marginHorizontal: 8,
   },
   heading: { fontSize: 36, textAlign: "center" },
   title: { fontSize: 16 },
