@@ -1,5 +1,12 @@
 import React from "react";
-import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
+import {
+  View,
+  FlatList,
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  Button,
+} from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -40,7 +47,7 @@ const BeachList = (props) => {
           beach.congestion === 1
             ? "lightgreen" // Green - low congestion
             : beach.congestion === 2
-            ? "darkorange" // Yellow - medium congestion
+            ? "goldenrod" // Yellow - medium congestion
             : "red" // Red - high congestion
         }
         size={32}
@@ -50,6 +57,12 @@ const BeachList = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Button
+        title="Test"
+        onPress={() =>
+          props.navigation.navigate("Map", { activeBeach: beaches[2] })
+        }
+      ></Button>
       <FlatList
         data={beaches}
         renderItem={renderBeachItem}

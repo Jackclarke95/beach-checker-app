@@ -1,19 +1,17 @@
 import React from "react";
 import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import MapView, { Polygon } from "react-native-maps";
+import NoticeCard from "../components/noticeCard";
 
 const HomePage = (props) => {
   let notices = props.notices;
   let beaches = props.beaches;
 
-  const renderNoticeItem = ({ item: notice }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{notice.message}</Text>
-    </View>
-  );
+  const renderNoticeItem = ({ item: notice }) => <NoticeCard notice={notice} />;
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Beach Preview</Text>
       <MapView
         pitchEnabled={false}
         rotateEnabled={false}
@@ -37,7 +35,7 @@ const HomePage = (props) => {
                   b.congestion === 1
                     ? "darkgreen"
                     : b.congestion === 2
-                    ? "darkorange"
+                    ? "goldenrod"
                     : "red"
                 }
                 fillColor={
@@ -53,11 +51,14 @@ const HomePage = (props) => {
         })}
       </MapView>
       {!notices || notices.length === 0 ? null : ( // Do not render Notices if there are none
-        <FlatList
-          data={notices}
-          renderItem={renderNoticeItem}
-          keyExtractor={(n) => n.id.toString()}
-        />
+        <>
+          <Text style={styles.title}>Notices</Text>
+          <FlatList
+            data={notices}
+            renderItem={renderNoticeItem}
+            keyExtractor={(n) => n.id.toString()}
+          />
+        </>
       )}
     </SafeAreaView>
   );
@@ -72,16 +73,11 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 8,
   },
-  itemFont: {
-    fontSize: 24,
-  },
-  item: {
-    textAlign: "center",
-    backgroundColor: "#ff8888",
+  title: {
     padding: 8,
+    fontSize: 24,
+    textAlign: "center",
   },
-  heading: { fontSize: 36, textAlign: "center" },
-  title: { fontSize: 16 },
 });
 
 export default HomePage;

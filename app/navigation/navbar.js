@@ -56,7 +56,13 @@ function Navbar() {
             ),
           }}
         >
-          {(props) => <MapPage {...props} beaches={data.beaches} />}
+          {(props) => (
+            <MapPage
+              {...props}
+              beaches={data.beaches}
+              activeBeach={data.beaches[9]}
+            />
+          )}
         </Tab.Screen>
         <Tab.Screen
           name="FAQ"

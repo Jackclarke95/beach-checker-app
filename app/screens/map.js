@@ -6,7 +6,7 @@ import BeachCard from "../components/beachCard";
 const MapPage = (props) => {
   const beaches = props.beaches;
   const initialRegion = props.initialRegion;
-  const activeBeach = props.activeBeach ? props.activeBeach : null;
+  const activeBeach = props.activeBeach;
 
   const [region, setRegion] = useState(
     initialRegion
@@ -53,7 +53,7 @@ const MapPage = (props) => {
                     b.congestion === 1
                       ? "darkgreen" // Green - low congestion
                       : b.congestion === 2
-                      ? "darkorange" // Yellow - medium congestion
+                      ? "goldenrod" // Yellow - medium congestion
                       : "red" // Red - high congestion
                   }
                   fillColor={

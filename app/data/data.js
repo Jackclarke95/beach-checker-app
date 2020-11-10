@@ -107,7 +107,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Permitted in designated area only.",
+      bbq: "Permitted in designated areas only",
       congestion: 2,
       favourite: true,
       location: {
@@ -259,7 +259,7 @@ const data = {
       toilets: false,
       dogs: true,
       cycling: true,
-      bbq: "Permitted in the designated area only.",
+      bbq: "Permitted in designated areas only",
       congestion: 1,
       favourite: false,
       location: {
@@ -469,7 +469,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted",
+      bbq: false,
       congestion: 2,
       favourite: false,
       location: {
@@ -533,7 +533,7 @@ const data = {
       toilets: true,
       dogs: true,
       cycling: true,
-      bbq: "Permitted in the designated areas only.",
+      bbq: "Permitted in designated areas only",
       congestion: 1,
       favourite: true,
       location: {
@@ -593,7 +593,7 @@ const data = {
       toilets: false,
       dogs: true,
       cycling: true,
-      bbq: "Not permitted",
+      bbq: false,
       congestion: 1,
       favourite: false,
       location: {

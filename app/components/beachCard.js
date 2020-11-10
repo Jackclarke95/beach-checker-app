@@ -56,13 +56,27 @@ const BeachCard = (props) => {
 
         <View style={styles.amenityRow}>
           <View style={styles.amenity}>
-            <Icon style={styles.amenityIcon} name="lifebuoy" size={24} />
+            <Icon
+              style={[
+                styles.amenityIcon,
+                beach.lifeguarded ? styles.iconEnabled : styles.iconDisabled,
+              ]}
+              name="lifebuoy"
+              size={24}
+            />
             <Text style={styles.amenityFont}>{`Lifeguard: ${
               beach.lifeguarded ? "Yes" : "No"
             }`}</Text>
           </View>
           <View style={styles.amenity}>
-            <Icon style={styles.amenityIcon} name="human-male-male" size={24} />
+            <Icon
+              style={[
+                styles.amenityIcon,
+                beach.toilets ? styles.iconEnabled : styles.iconDisabled,
+              ]}
+              name="human-male-female"
+              size={24}
+            />
             <Text style={styles.amenityFont}>{`Toilets: ${
               beach.toilets ? "Yes" : "No"
             }`}</Text>
@@ -70,21 +84,44 @@ const BeachCard = (props) => {
         </View>
         <View style={styles.amenityRow}>
           <View style={styles.amenity}>
-            <Icon style={styles.amenityIcon} name="dog-side" size={24} />
+            <Icon
+              style={[
+                styles.amenityIcon,
+                beach.dogs ? styles.iconEnabled : styles.iconDisabled,
+              ]}
+              name="dog-side"
+              size={24}
+            />
             <Text style={styles.amenityFont}>{`Dogs: ${
               beach.dogs ? "Yes" : "No"
             }`}</Text>
           </View>
           <View style={styles.amenity}>
-            <Icon style={styles.amenityIcon} name="bike" size={24} />
+            <Icon
+              style={[
+                styles.amenityIcon,
+                beach.cycling ? styles.iconEnabled : styles.iconDisabled,
+              ]}
+              name="bike"
+              size={24}
+            />
             <Text style={styles.amenityFont}>{`Cycling: ${
               beach.cycling ? "Yes" : "No"
             }`}</Text>
           </View>
         </View>
         <View style={styles.infoRow}>
-          <Icon style={styles.amenityIcon} name="grill" size={24} />
-          <Text style={styles.amenityFont}>{`BBQ: ${beach.bbq}`}</Text>
+          <Icon
+            style={[
+              styles.amenityIcon,
+              beach.bbq ? styles.iconEnabled : styles.iconDisabled,
+            ]}
+            name="grill"
+            size={24}
+          />
+          <Text style={styles.amenityFont}>{`BBQ: ${
+            beach.bbq ? beach.bbq : "Not permitted"
+          }`}</Text>
         </View>
       </ScrollView>
     </View>
@@ -110,7 +147,7 @@ const styles = StyleSheet.create({
   },
   congestionMed: {
     backgroundColor: "#ece5769f",
-    borderColor: "darkorange",
+    borderColor: "goldenrod",
   },
   congestionHigh: {
     backgroundColor: "#ec74749f",
@@ -140,6 +177,12 @@ const styles = StyleSheet.create({
   },
   amenityIcon: {
     paddingRight: 4,
+  },
+  iconEnabled: {
+    color: "black",
+  },
+  iconDisabled: {
+    color: "#a5a5a57a",
   },
 });
 

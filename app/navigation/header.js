@@ -7,7 +7,10 @@ const Heading = () => {
     <View style={{ width: "100%" }}>
       <Header
         backgroundColor="#800020"
-        centerComponent={{ text: "BCP Beach Check", style: { color: "#fff" } }}
+        centerComponent={{
+          text: "BCP Beach Check",
+          style: { color: "#fff", fontSize: 24 },
+        }}
       />
     </View>
   );

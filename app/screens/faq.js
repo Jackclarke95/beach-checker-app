@@ -1,20 +1,15 @@
 import React from "react";
-import { View, FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
+import {  FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
+import FaqCard from "../components/faqCard";
 
 const FaqPage = (props) => {
   let faqs = props.faqs;
 
-  const renderFaqItem = ({ item: faq }) => (
-    <View style={styles.item}>
-      <Text style={styles.question}>
-        {faq.id}. {faq.question}
-      </Text>
-      <Text style={styles.answer}>{faq.answer}</Text>
-    </View>
-  );
+  const renderFaqItem = ({ item: faq }) => <FaqCard faq={faq} />;
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.heading}>Frequently Asked Questions</Text>
       <FlatList
         data={faqs}
         renderItem={renderFaqItem}
@@ -31,18 +26,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  itemFont: {
-    fontSize: 24,
-  },
-  item: {
-    textAlign: "center",
-    padding: 8,
-    marginVertical: 4,
-    marginHorizontal: 8,
-  },
   heading: { fontSize: 36, textAlign: "center" },
-  question: { fontSize: 22, flexGrow: 1, fontWeight: "bold" },
-  answer: { fontSize: 18, flexGrow: 1, textAlign: "left" },
 });
 
 export default FaqPage;
