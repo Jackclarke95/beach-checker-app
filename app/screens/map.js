@@ -32,41 +32,44 @@ const MapPage = ({ route }) => {
         >
           {beaches.map((beach) => {
             return (
-              <>
-                <Marker
-                  coordinate={beach.location}
-                  title={beach.name}
-                  onPress={() => {
-                    setCurrentBeach(beach);
-                  }}
-                  description={`Congestion: ${
-                    beach.congestion === 1
-                      ? "Low"
-                      : beach.congestion === 2
-                      ? "Medium"
-                      : "High"
-                  }`}
-                />
-                <Polygon
-                  key={beach.id.toString()}
-                  coordinates={beach.region}
-                  onPress={() => setCurrentBeach(beach)}
-                  strokeColor={
-                    beach.congestion === 1
-                      ? "darkgreen"
-                      : beach.congestion === 2
-                      ? "goldenrod"
-                      : "red"
-                  }
-                  fillColor={
-                    beach.congestion === 1
-                      ? "#74ec849f"
-                      : beach.congestion === 2
-                      ? "#ece5769f"
-                      : "#ec74749f"
-                  }
-                />
-              </>
+              <Marker
+                key={beach.id.toString()}
+                coordinate={beach.location}
+                title={beach.name}
+                onPress={() => {
+                  setCurrentBeach(beach);
+                }}
+                description={`Congestion: ${
+                  beach.congestion === 1
+                    ? "Low"
+                    : beach.congestion === 2
+                    ? "Medium"
+                    : "High"
+                }`}
+              />
+            );
+          })}
+          {beaches.map((beach) => {
+            return (
+              <Polygon
+                key={(beach.id + 100).toString()}
+                coordinates={beach.region}
+                onPress={() => setCurrentBeach(beach)}
+                strokeColor={
+                  beach.congestion === 1
+                    ? "darkgreen"
+                    : beach.congestion === 2
+                    ? "goldenrod"
+                    : "red"
+                }
+                fillColor={
+                  beach.congestion === 1
+                    ? "#74ec849f"
+                    : beach.congestion === 2
+                    ? "#ece5769f"
+                    : "#ec74749f"
+                }
+              />
             );
           })}
         </MapView>
