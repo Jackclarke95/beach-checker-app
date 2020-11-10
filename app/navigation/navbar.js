@@ -3,9 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import HomePage from "../screens/home";
-import  MapPage from "../screens/map";
+import MapPage from "../screens/map";
 import BeachList from "../screens/beachList";
-import Faq from "../screens/faq";
+import FaqPage from "../screens/faq";
 import data from "../data/data";
 
 const Tab = createBottomTabNavigator();
@@ -16,9 +16,6 @@ function Navbar() {
       <Tab.Navigator initialRouteName="Home">
         <Tab.Screen
           name="Home"
-          children={() => (
-            <HomePage notices={data.notices} beaches={data.beaches} />
-          )}
           options={{
             tabBarLabel: "Home",
             tabBarAccessibilityLabel: "Home page",
@@ -26,10 +23,17 @@ function Navbar() {
               <MaterialIcon name="home" color={color} size={26} />
             ),
           }}
-        />
+        >
+          {(props) => (
+            <HomePage
+              {...props}
+              notices={data.notices}
+              beaches={data.beaches}
+            />
+          )}
+        </Tab.Screen>
         <Tab.Screen
           name="Beaches"
-          children={() => <BeachList beaches={data.beaches} user={data.user} />}
           options={{
             tabBarLabel: "Beaches",
             tabBarAccessibilityLabel: "Beaches page",
@@ -37,10 +41,13 @@ function Navbar() {
               <MaterialIcon name="beach-access" size={26} color={color} />
             ),
           }}
-        />
+        >
+          {(props) => (
+            <BeachList {...props} beaches={data.beaches} user={data.user} />
+          )}
+        </Tab.Screen>
         <Tab.Screen
           name="Map"
-          children={() => <MapPage beaches={data.beaches} />}
           options={{
             tabBarLabel: "Map",
             tabBarAccessibilityLabel: "Map page",
@@ -48,10 +55,11 @@ function Navbar() {
               <MaterialIcon name="map" size={26} color={color} />
             ),
           }}
-        />
+        >
+          {(props) => <MapPage {...props} beaches={data.beaches} />}
+        </Tab.Screen>
         <Tab.Screen
           name="FAQ"
-          children={() => <Faq faqs={data.faqs} />}
           options={{
             tabBarLabel: "FAQ",
             tabBarAccessibilityLabel: "FAQ page",
@@ -59,7 +67,9 @@ function Navbar() {
               <MaterialIcon name="help" size={26} color={color} />
             ),
           }}
-        />
+        >
+          {(props) => <FaqPage {...props} faqs={data.faqs} />}
+        </Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );
