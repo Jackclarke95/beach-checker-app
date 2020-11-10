@@ -6,6 +6,7 @@ import BeachCard from "../components/beachCard";
 const MapPage = (props) => {
   const beaches = props.beaches;
   const initialRegion = props.initialRegion;
+  const activeBeach = props.activeBeach ? props.activeBeach : null;
 
   const [region, setRegion] = useState(
     initialRegion
@@ -18,7 +19,7 @@ const MapPage = (props) => {
         }
   );
 
-  const [currentBeach, setCurrentBeach] = useState(null);
+  const [currentBeach, setCurrentBeach] = useState(activeBeach);
 
   return (
     <SafeAreaView>
