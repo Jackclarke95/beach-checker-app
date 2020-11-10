@@ -29,37 +29,37 @@ const MapPage = (props) => {
           initialRegion={region}
           onRegionChange={setRegion}
         >
-          {beaches.map((b) => {
+          {beaches.map((beach) => {
             return (
               <>
                 <Marker
                   opacity={region.longitudeDelta < 0.08 ? 1 : 0}
-                  coordinate={b.location}
-                  title={b.name}
-                  onPress={() => setCurrentBeach(b)}
+                  coordinate={beach.location}
+                  title={beach.name}
+                  onPress={() => setCurrentBeach(beach)}
                   description={`Congestion: ${
-                    b.congestion === 1
+                    beach.congestion === 1
                       ? "Low"
-                      : b.congestion === 2
+                      : beach.congestion === 2
                       ? "Medium"
                       : "High"
                   }`}
                 />
                 <Polygon
-                  key={b.id.toString()}
-                  coordinates={b.region}
-                  onPress={() => setCurrentBeach(b)}
+                  key={beach.id.toString()}
+                  coordinates={beach.region}
+                  onPress={() => setCurrentBeach(beach)}
                   strokeColor={
-                    b.congestion === 1
+                    beach.congestion === 1
                       ? "darkgreen"
-                      : b.congestion === 2
+                      : beach.congestion === 2
                       ? "goldenrod"
                       : "red"
                   }
                   fillColor={
-                    b.congestion === 1
+                    beach.congestion === 1
                       ? "#74ec849f"
-                      : b.congestion === 2
+                      : beach.congestion === 2
                       ? "#ece5769f"
                       : "#ec74749f"
                   }

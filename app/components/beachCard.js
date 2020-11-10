@@ -2,18 +2,12 @@ import React from "react";
 import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-const BeachCard = (props) => {
-  if (props.beach === null) {
-    return (
-      <View style={[styles.container, styles.containerEmpty]}>
-        <Text style={styles.title}>Zoom in and select a beach to learn more</Text>
-      </View>
-    );
-  }
-
-  let beach = props.beach;
-
-  return (
+const BeachCard = ({ beach }) => {
+  return beach === null ? (
+    <View style={[styles.container, styles.containerEmpty]}>
+      <Text style={styles.title}>Zoom in and select a beach to learn more</Text>
+    </View>
+  ) : (
     <View
       style={[
         styles.container,
