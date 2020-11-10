@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import FaqCard from "../components/faqCard";
+import Colours from "../styles/colours";
 
 const FaqPage = ({ route }) => {
   const faqs = route.params.faqs;
@@ -20,7 +21,7 @@ const FaqPage = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: Colours.white,
     alignItems: "center",
     justifyContent: "center",
   },

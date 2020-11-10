@@ -2,6 +2,7 @@ import React from "react";
 import { FlatList, StyleSheet, Text, SafeAreaView } from "react-native";
 import MapView, { Polygon } from "react-native-maps";
 import NoticeCard from "../components/noticeCard";
+import Colours from "../styles/colours";
 
 const HomePage = ({ route }) => {
   const beaches = route.params.beaches;
@@ -60,11 +61,11 @@ const HomePage = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: Colours.white,
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 8,
-    marginHorizontal: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 8,
   },
   text: {
     fontSize: 14,

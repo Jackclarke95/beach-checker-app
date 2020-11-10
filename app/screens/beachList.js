@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList, StyleSheet, SafeAreaView } from "react-native";
 import BeachListCard from "../components/beachListCard";
+import Colours from "../styles/colours";
 
 const BeachList = ({ navigation, route }) => {
   const user = route.params.user;
@@ -28,10 +29,12 @@ const BeachList = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: Colours.white,
     alignItems: "center",
     justifyContent: "center",
     flexGrow: 1,
+    paddingVertical: 8,
+    paddingHorizontal: 8,
   },
 });
 

@@ -1,10 +1,11 @@
 import React from "react";
 import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import MasterStyles from "../styles/beachCards";
 
 const BeachCard = ({ beach }) => {
   return beach === null ? (
-    <View style={[styles.container, styles.containerEmpty]}>
+    <View style={[styles.container, MasterStyles.containerEmpty]}>
       <Text style={styles.title}>Zoom in and select a beach to learn more</Text>
     </View>
   ) : (
@@ -12,17 +13,17 @@ const BeachCard = ({ beach }) => {
       style={[
         styles.container,
         beach.congestion === 1
-          ? styles.congestionLow
+          ? MasterStyles.congestionLow
           : beach.congestion === 2
-          ? styles.congestionMed
-          : styles.congestionHigh,
+          ? MasterStyles.congestionMed
+          : MasterStyles.congestionHigh,
       ]}
     >
       <ScrollView>
         <Text style={styles.title}>{beach.name}</Text>
         <View style={styles.infoRow}>
           <Icon
-            style={styles.amenityIcon}
+            style={MasterStyles.amenityIcon}
             name={
               beach.congestion === 1
                 ? `check-circle-outline`
@@ -50,8 +51,8 @@ const BeachCard = ({ beach }) => {
           <View style={styles.amenity}>
             <Icon
               style={[
-                styles.amenityIcon,
-                beach.lifeguarded ? styles.iconEnabled : styles.iconDisabled,
+                MasterStyles.amenityIcon,
+                beach.lifeguarded ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
               ]}
               name="lifebuoy"
               size={24}
@@ -62,7 +63,10 @@ const BeachCard = ({ beach }) => {
           </View>
           <View style={styles.amenity}>
             <Icon
-              style={[styles.amenityIcon, beach.toilets ? styles.iconEnabled : styles.iconDisabled]}
+              style={[
+                MasterStyles.amenityIcon,
+                beach.toilets ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
+              ]}
               name="human-male-female"
               size={24}
             />
@@ -72,7 +76,10 @@ const BeachCard = ({ beach }) => {
         <View style={styles.amenityRow}>
           <View style={styles.amenity}>
             <Icon
-              style={[styles.amenityIcon, beach.dogs ? styles.iconEnabled : styles.iconDisabled]}
+              style={[
+                MasterStyles.amenityIcon,
+                beach.dogs ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
+              ]}
               name="dog-side"
               size={24}
             />
@@ -80,7 +87,10 @@ const BeachCard = ({ beach }) => {
           </View>
           <View style={styles.amenity}>
             <Icon
-              style={[styles.amenityIcon, beach.cycling ? styles.iconEnabled : styles.iconDisabled]}
+              style={[
+                MasterStyles.amenityIcon,
+                beach.cycling ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
+              ]}
               name="bike"
               size={24}
             />
@@ -89,7 +99,10 @@ const BeachCard = ({ beach }) => {
         </View>
         <View style={styles.infoRow}>
           <Icon
-            style={[styles.amenityIcon, beach.bbq ? styles.iconEnabled : styles.iconDisabled]}
+            style={[
+              MasterStyles.amenityIcon,
+              beach.bbq ? MasterStyles.iconEnabled : MasterStyles.iconDisabled,
+            ]}
             name="grill"
             size={24}
           />
@@ -111,22 +124,6 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     height: 180,
   },
-  containerEmpty: {
-    backgroundColor: "lightgray",
-    borderColor: "gray",
-  },
-  congestionLow: {
-    backgroundColor: "#74ec849f",
-    borderColor: "darkgreen",
-  },
-  congestionMed: {
-    backgroundColor: "#ece5769f",
-    borderColor: "goldenrod",
-  },
-  congestionHigh: {
-    backgroundColor: "#ec74749f",
-    borderColor: "red",
-  },
   title: {
     fontSize: 24,
     textAlign: "center",
@@ -145,18 +142,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "50%",
   },
-  flexGrow: 1,
   amenityFont: {
     fontSize: 18,
-  },
-  amenityIcon: {
-    paddingRight: 4,
-  },
-  iconEnabled: {
-    color: "black",
-  },
-  iconDisabled: {
-    color: "#a5a5a57a",
   },
 });
 

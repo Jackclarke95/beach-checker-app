@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Colours from "../styles/colours";
 
 const NoticeCard = (props) => {
   const notice = props.notice;
@@ -16,8 +17,8 @@ const NoticeCard = (props) => {
 const styles = StyleSheet.create({
   item: {
     borderWidth: 2,
-    backgroundColor: "#ec74749f",
-    borderColor: "red",
+    backgroundColor: Colours.lightRed,
+    borderColor: Colours.darkRed,
     flexDirection: "column",
     alignItems: "center",
     padding: 8,

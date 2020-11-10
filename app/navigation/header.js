@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Header } from "react-native-elements";
+import Colours from "../styles/colours";
 
 const Heading = () => {
   return (
@@ -9,7 +10,7 @@ const Heading = () => {
         backgroundColor="#800020"
         centerComponent={{
           text: "BCP Beach Check",
-          style: { color: "#fff", fontSize: 24 },
+          style: { color: Colours.white, fontSize: 24 },
         }}
       />
     </View>
