@@ -3,10 +3,10 @@ export default Colours = {
   black: "#000",
   lightGrey: "#D3D3D3",
   grey: "#808080",
-  lightRed: "#ec74749f",
+  lightRed: "#FF8F8F",
   darkRed: "#FF0000",
-  lightYellow: "#ece5769f",
+  lightYellow: "#ECE576",
   darkYellow: "#DAA520",
-  lightGreen: "#74ec849f",
+  lightGreen: "#74EC84",
   darkGreen: "#006400",
 };
